@@ -17,11 +17,6 @@ class Hero(Base):
     biography = Column(String)
     image_url = Column(String)
 
-    abillities: Mapped[List["Ability"]] = relationship(
-        back_populates="hero", cascade = "all, delete-orphan")
-    
-    relationship: Mapped[List["Ability"]] = relationship(
-        back_populates="hero", cascade = "all, delete-orphan")
     
     def __repr__(self) -> str:
         return f"Hero(id={self.id!r}), name={self.name!r}, about_me={self.about_me!r}, biography={self.biography!r}, image_url={self.image_url!r})"
